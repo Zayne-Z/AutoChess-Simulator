@@ -3,366 +3,366 @@
             "name": "神枪手",
             "race": ["步兵"],
             "vocation": ["狙击"],
-            "image": "/static/images/chess/shenqiangshou.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/shenqiangshou.png"
         },
         {
             "name": "护盾兵",
             "race": ["步兵"],
             "vocation": ["护卫"],
-            "image": "/static/images/chess/hudunbing.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/hudunbing.png"
         },
         {
         "name": "军医",
         "race": ["步兵"],
         "vocation": ["辅助"],
-        "image": "/static/images/chess/junyi.png"
+        "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/junyi.png"
         },
         {
             "name": "火焰兵",
             "race": ["步兵"],
             "vocation": ["战士"],
-            "image": "/static/images/chess/huoyanbing.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/huoyanbing.png"
         },
         {
             "name": "特种兵",
             "race": ["步兵"],
             "vocation": ["狙击"],
-            "image": "/static/images/chess/tezhongbing.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/tezhongbing.png"
         },
         {
             "name": "投弹手",
             "race": ["步兵"],
             "vocation": ["异能"],
-            "image": "/static/images/chess/toudanshou.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/toudanshou.png"
         },
         {
             "name": "刀奴",
             "race": ["傀儡"],
             "vocation": ["战士"],
-            "image": "/static/images/chess/daonu.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/daonu.png"
         },
         {
             "name": "盾奴",
             "race": ["傀儡"],
             "vocation": ["护卫"],
-            "image": "/static/images/chess/dunnu.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/dunnu.png"
         },
         {
             "name": "剑奴",
             "race": ["傀儡"],
             "vocation": ["战士"],
-            "image": "/static/images/chess/jiannu.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/jiannu.png"
         },
         {
             "name": "棍奴",
             "race": ["傀儡"],
             "vocation": ["战士"],
-            "image": "/static/images/chess/gunnu.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/gunnu.png"
         },
         {
             "name": "斧奴",
             "race": ["傀儡"],
-            "vocation": ["刺客"],
-            "image": "/static/images/chess/funu.png"
+            "vocation": ["刺杀"],
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/funu.png"
         },
         {
             "name": "真人",
             "race": ["傀儡", "灵能者"],
             "vocation": ["召唤"],
-            "image": "/static/images/chess/zhenren.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/zhenren.png"
         },
         {
             "name": "须弥鲨",
             "race": ["傀儡","海神"],
             "vocation": ["召唤"],
-            "image": "/static/images/chess/xumisha.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/xumisha.png"
         },
         {
             "name": "地震",
             "race": ["格斗家"],
             "vocation": ["护卫"],
-            "image": "/static/images/chess/dizhen.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/dizhen.png"
         },
         {
             "name": "娜可露露",
             "race": ["格斗家"],
             "vocation": ["刺杀"],
-            "image": "/static/images/chess/nakelulu.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/nakelulu.png"
         },
         {
             "name": "橘右京",
             "race": ["格斗家"],
             "vocation": ["战士"],
-            "image": "/static/images/chess/juyoujing.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/juyoujing.png"
         },
         {
             "name": "不知火舞",
             "race": ["格斗家"],
             "vocation": ["爆破"],
-            "image": "/static/images/chess/buzhihuowu.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/buzhihuowu.png"
         },
         {
             "name": "麻宫雅典娜",
             "race": ["格斗家"],
             "vocation": ["法术"],
-            "image": "/static/images/chess/magongyadianna.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/magongyadianna.png"
         },
         {
             "name": "炼金塔",
             "race": ["建筑"],
             "vocation": ["辅助"],
-            "image": "/static/images/chess/lianjinta.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/lianjinta.png"
         },
         {
             "name": "神威塔",
             "race": ["建筑"],
             "vocation": ["法术"],
-            "image": "/static/images/chess/shenweita.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/shenweita.png"
         },
         {
             "name": "变形塔",
             "race": ["建筑"],
             "vocation": ["攻城"],
-            "image": "/static/images/chess/bianxingta.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/bianxingta.png"
         },
         {
             "name": "鸟骑兵",
             "race": ["骑兵"],
             "vocation": ["狙击"],
-            "image": "/static/images/chess/niaoqibing.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/niaoqibing.png"
         },
         {
             "name": "摩托骑兵",
             "race": ["骑兵"],
             "vocation": ["爆破"],
-            "image": "/static/images/chess/motuoqibing.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/motuoqibing.png"
         },
         {
             "name": "铁狗",
             "race": ["装甲"],
             "vocation": ["爆破"],
-            "image": "/static/images/chess/tiegou.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/tiegou.png"
         },
         {
             "name": "铁猿",
             "race": ["装甲"],
             "vocation": ["爆破"],
-            "image": "/static/images/chess/tieyuan.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/tieyuan.png"
         },
         {
             "name": "铁鸡",
             "race": ["装甲"],
             "vocation": ["刺杀"],
-            "image": "/static/images/chess/tieji.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/tieji.png"
         },
         {
             "name": "投石车",
             "race": ["装甲"],
             "vocation": ["攻城"],
-            "image": "/static/images/chess/toushiche.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/toushiche.png"
         },
         {
             "name": "铁巨神",
             "race": ["装甲"],
             "vocation": ["爆破"],
-            "image": "/static/images/chess/tiejushen.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/tiejushen.png"
         },
         {
             "name": "维修机",
             "race": ["空军"],
             "vocation": ["辅助"],
-            "image": "/static/images/chess/weixiuji.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/weixiuji.png"
         },
         {
             "name": "轰炸机",
             "race": ["空军"],
             "vocation": ["爆破"],
-            "image": "/static/images/chess/hongzhaji.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/hongzhaji.png"
         },
         {
             "name": "幽灵机",
             "race": ["空军"],
             "vocation": ["刺杀"],
-            "image": "/static/images/chess/youlingji.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/youlingji.png"
         },
         {
             "name": "方舟",
             "race": ["空军"],
             "vocation": ["攻城"],
-            "image": "/static/images/chess/fangzhou.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/fangzhou.png"
         },
         {
             "name": "天师",
             "race": ["灵能者"],
             "vocation": ["爆破"],
-            "image": "/static/images/chess/tianshi.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/tianshi.png"
         },
         {
             "name": "童子",
             "race": ["灵能者"],
             "vocation": ["辅助"],
-            "image": "/static/images/chess/tongzi.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/tongzi.png"
         },
         {
             "name": "雷震子",
             "race": ["灵能者"],
             "vocation": ["狙击"],
-            "image": "/static/images/chess/leizhenzi.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/leizhenzi.png"
         },
         {
             "name": "翔龙",
             "race": ["灵能者"],
             "vocation": ["攻城"],
-            "image": "/static/images/chess/xianglong.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/xianglong.png"
         },
         {
             "name": "玄龟",
             "race": ["灵能者"],
             "vocation": ["护卫"],
-            "image": "/static/images/chess/xuangui.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/xuangui.png"
         },
         {
             "name": "灵鹫",
             "race": ["海神"],
             "vocation": ["刺杀"],
-            "image": "/static/images/chess/lingjiu.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/lingjiu.png"
         },
         {
             "name": "空蟹",
             "race": ["海神"],
             "vocation": ["攻城"],
-            "image": "/static/images/chess/kongxie.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/kongxie.png"
         },
         {
             "name": "电蛟",
             "race": ["海神"],
             "vocation": ["法术"],
-            "image": "/static/images/chess/dianjiao.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/dianjiao.png"
         },
         {
             "name": "幻鲸",
             "race": ["海神"],
             "vocation": ["攻城"],
-            "image": "/static/images/chess/huanjing.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/huanjing.png"
         },
         {
             "name": "巨齿象",
             "race": ["野兽"],
             "vocation": ["战士"],
-            "image": "/static/images/chess/juchixiang.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/juchixiang.png"
         },
         {
             "name": "猛毒兽",
             "race": ["野兽"],
             "vocation": ["战士"],
-            "image": "/static/images/chess/mengdushou.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/mengdushou.png"
         },
         {
             "name": "鬼狼",
             "race": ["野兽"],
             "vocation": ["召唤"],
-            "image": "/static/images/chess/guilang.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/guilang.png"
         },
         {
             "name": "狂狮",
             "race": ["野兽"],
             "vocation": ["护卫"],
-            "image": "/static/images/chess/kuangshi.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/kuangshi.png"
         },
         {
             "name": "长生鹿",
             "race": ["野兽"],
             "vocation": ["辅助"],
-            "image": "/static/images/chess/changshenglu.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/changshenglu.png"
         },
         {
             "name": "血鹰",
             "race": ["野兽","猛禽"],
             "vocation": ["战士"],
-            "image": "/static/images/chess/xueying.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/xueying.png"
         },
         {
             "name": "蝙蝠",
             "race": ["猛禽"],
             "vocation": ["狙击"],
-            "image": "/static/images/chess/bianfu.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/bianfu.png"
         },
         {
             "name": "不死鸟",
             "race": ["猛禽"],
             "vocation": ["爆破","法术"],
-            "image": "/static/images/chess/businiao.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/businiao.png"
         },
         {
             "name": "骨龙",
             "race": ["猛禽","不朽者"],
             "vocation": ["攻城"],
-            "image": "/static/images/chess/gulong.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/gulong.png"
         },
         {
             "name": "飞天蛤蟆",
             "race": ["猛禽"],
             "vocation": ["法术"],
-            "image": "/static/images/chess/feitianhama.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/feitianhama.png"
         },
         {
             "name": "眼虫",
             "race": ["异虫"],
             "vocation": ["法术"],
-            "image": "/static/images/chess/yanchong.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/yanchong.png"
         },
         {
             "name": "爆裂虫",
             "race": ["异虫"],
             "vocation": ["爆破"],
-            "image": "/static/images/chess/baoliechong.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/baoliechong.png"
         },
         {
             "name": "蜘蛛",
             "race": ["异虫"],
             "vocation": ["法术"],
-            "image": "/static/images/chess/zhizhu.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/zhizhu.png"
         },
         {
             "name": "杀人蜂",
             "race": ["异虫"],
             "vocation": ["狙击"],
-            "image": "/static/images/chess/sharenfeng.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/sharenfeng.png"
         },
         {
             "name": "藤妖",
             "race": ["不朽者"],
             "vocation": ["法术"],
-            "image": "/static/images/chess/tengyao.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/tengyao.png"
         },
         {
             "name": "勾魂使",
             "race": ["不朽者"],
             "vocation": ["刺杀"],
-            "image": "/static/images/chess/gouhunshi.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/gouhunshi.png"
         },
         {
             "name": "树妖",
             "race": ["不朽者"],
             "vocation": ["战士"],
-            "image": "/static/images/chess/shuyao.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/shuyao.png"
         },
         {
             "name": "武僧熊猫",
             "race": ["熊猫"],
             "vocation": ["战士"],
-            "image": "/static/images/chess/wusengxiongmao.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/wusengxiongmao.png"
         },
         {
             "name": "忍者熊猫",
             "race": ["熊猫"],
             "vocation": ["刺杀"],
-            "image": "/static/images/chess/renzhexiongmao.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/renzhexiongmao.png"
         },
         {
             "name": "禅师熊猫",
             "race": ["熊猫"],
             "vocation": ["法术"],
-            "image": "/static/images/chess/chanshixiongmao.png"
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/chanshixiongmao.png"
         }
     ]
