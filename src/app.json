@@ -1,7 +1,7 @@
 {
   "pages": [
+    "pages/battle/main",
     "pages/index/main",
-    "pages/logs/main",
     "pages/counter/main"
   ],
   "window": {
@@ -17,15 +17,15 @@
     "borderStyle": "white",
 
     "list": [{
+      "text": "阵容",
+      "pagePath": "pages/battle/main",
+      "iconPath": "static/tabs/orders.png",
+      "selectedIconPath": "static/tabs/orders-active.png"
+    },{
       "text": "模拟器",
       "pagePath": "pages/index/main",
       "iconPath": "static/tabs/home.png",
       "selectedIconPath": "static/tabs/home-active.png"
-    }, {
-      "text": "攻略",
-      "pagePath": "pages/logs/main",
-      "iconPath": "static/tabs/orders.png",
-      "selectedIconPath": "static/tabs/orders-active.png"
     }],
 
     "items": [{
@@ -34,8 +34,8 @@
       "icon": "static/tabs/home.png",
       "activeIcon": "static/tabs/home-active.png"
     }, {
-      "name": "订单",
-      "pagePath": "pages/logs/main",
+      "name": "阵容",
+      "pagePath": "pages/battle/main",
       "icon": "static/tabs/orders.png",
       "activeIcon": "static/tabs/orders-active.png"
     }],
