@@ -23,7 +23,7 @@
         >
           <i
             class="iconfont icon-autodq"
-            v-if="index === 0 && selectHeros.length > 0 && isSingleModel"
+            v-if="index === 0 && selectHeros.length > 0"
             @click="autoFill()"
           />
         </div>
@@ -69,30 +69,46 @@
 
 <script>
 import ChessTabs from '../../components/ChessTabs'
+import store from '../../store'
 export default {
   components: {
     ChessTabs
   },
   data () {
     return {
-      // races: require('../datas/races.json'),
-      // heros: require('../datas/heros.json'),
-      // effect: require('../datas/effect.json'),
-      // battles: require('../datas/battles.json'),
-      tabDatas: ['单人模式', '双子模式'],
-      races: [],
-      heros: [],
-      effect: [],
-      battles: [],
+      tabDatas: [
+        {
+          name: '单人模式',
+          active: true
+        },
+        {
+          name: '双子模式',
+          active: false
+        }
+      ],
       filters: ['全部'],
       showHerosList: [],
-      selectHeros: [],
       selectRace: [],
       showEffectList: [],
-      isSingleModel: true
+      selectHeros: [],
+      isSingleModel: true,
+      isInit: false
     }
   },
   computed: {
+    races: function () {
+      return store.state.races
+    },
+    heros: function () {
+      if (!this.isInit && store.state.heros.length > 0) {
+        this.isInit = true
+        this.showHerosList = JSON.parse(JSON.stringify(store.state.heros))
+      }
+      return store.state.heros
+    },
+    effect: function () {
+      return store.state.effect
+    },
     showHerosSet: function () {
       let nameArray = []
       let tempArray = []
@@ -111,11 +127,29 @@ export default {
     },
     totalContent: function () {
       return this.isSingleModel ? 10 : 16
+    },
+    selectHerosWatch: function () {
+      if (store.state.selectBattle.group) {
+        if (store.state.selectBattle.type === 'double') {
+          this.tabDatas = [{name: '单人模式', active: false}, {name: '双子模式', active: true}]
+          this.isSingleModel = false
+        } else {
+          this.tabDatas = [{name: '单人模式', active: true}, {name: '双子模式', active: false}]
+          this.isSingleModel = true
+        }
+        this.selectHeros = JSON.parse(
+          JSON.stringify(store.state.selectBattle.group)
+        )
+        this.showEffectList = JSON.parse(
+          JSON.stringify(store.state.selectBattle.effect)
+        )
+        store.dispatch('clearSelectBattle')
+      }
+      return []
     }
   },
   created () {
-    this.showHerosList = JSON.parse(JSON.stringify(this.heros))
-    const db = wx.cloud.database({env: 'zayne-autochess-nj0726'})
+    const db = wx.cloud.database({ env: 'zayne-autochess-nj0726' })
     const _this = this
     db.collection('AutoChessDB').get({
       success (res) {
@@ -144,6 +178,7 @@ export default {
       this.showEffectList = []
     },
     switchModel (tabName) {
+      this.activeData = ''
       this.isSingleModel = tabName === '单人模式'
       if (this.isSingleModel && this.selectHeros.length > 10) {
         this.selectHeros.length = 10
@@ -282,6 +317,7 @@ export default {
             isMatch = false
           }
         })
+        isMatch = isMatch && ((this.isSingleModel && this.battles[i].type === 'single') || (!this.isSingleModel && this.battles[i].type === 'double'))
         // 如果isMatch没有被改变，说明已经匹配到了，可以停止寻找
         if (isMatch) {
           autoGroup = this.battles[i].group
@@ -292,12 +328,18 @@ export default {
       if (isMatch) {
         this._autoFill(autoGroup)
       } else {
-        wx.showToast({title: '抱歉，暂时没有找到匹配的推荐阵容!', icon: 'none'})
+        wx.showToast({
+          title: '抱歉，暂时没有找到匹配的推荐阵容!',
+          icon: 'none'
+        })
       }
     },
     _autoFill (autoGroup) {
       this.heros.forEach(hero => {
-        if (autoGroup.indexOf(hero.name) > -1 && !this.isIncludes(hero, this.selectHeros, 'name')) {
+        if (
+          autoGroup.indexOf(hero.name) > -1 &&
+          !this.isIncludes(hero, this.selectHeros, 'name')
+        ) {
           this.selectHeros.push(hero)
         }
       })
@@ -318,7 +360,6 @@ export default {
 </script>
 
 <style scoped>
-@import "../../../static/iconfont/iconfont.css";
 .autochess-chesspanel-title-content {
   width: 100%;
 }

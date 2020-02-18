@@ -4,7 +4,7 @@
       <div
         v-for="tabData in _tabDatas"
         :key="tabData.id"
-        :class="{active: currentTab.id === tabData.id}"
+        :class="{active: tabData.active}"
         @click="switchModel(tabData)"
       >{{tabData.name}}</div>
     </div>
@@ -12,18 +12,19 @@
 </template>
 
 <script>
-import { getUUID } from '../utils/cal-utils'
+import { getUUID } from '../utils/common-utils'
 export default {
   name: 'ChessTabs',
   props: ['tabDatas'],
   data () {
     return {
-      currentTab: {}
     }
   },
   methods: {
     switchModel (tabData) {
-      this.currentTab = tabData
+      this._tabDatas.forEach(tab => {
+        tab.active = tabData.name === tab.name
+      })
       this.$emit('switchModel', tabData.name)
     }
   },
@@ -33,10 +34,10 @@ export default {
       this.tabDatas.forEach(element => {
         array.push({
           id: getUUID(),
-          name: element
+          name: element.name,
+          active: element.active
         })
       })
-      this.currentTab = array[0]
       return array
     }
   }

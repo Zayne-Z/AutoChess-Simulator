@@ -25,8 +25,20 @@ export function getUUID () {
   return (S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4())
 }
 
+export function queryObjectByKey (key, value, array) {
+  let target = {}
+  for (let i = 0, len = array.length; i < len; i++) {
+    if (array[i][key] === value) {
+      target = array[i]
+      break
+    }
+  }
+  return target
+}
+
 export default {
   formatNumber,
   formatTime,
-  getUUID
+  getUUID,
+  queryObjectByKey
 }

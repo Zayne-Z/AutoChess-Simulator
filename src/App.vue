@@ -1,4 +1,5 @@
 <script>
+import store from './store.js'
 export default {
   created () {
     // 调用API从本地缓存中获取数据
@@ -9,10 +10,9 @@ export default {
      * 百度：mpvue === swan, mpvuePlatform === 'swan'
      * 支付宝(蚂蚁)：mpvue === my, mpvuePlatform === 'my'
      */
-
     let logs
     if (mpvuePlatform === 'my') {
-      logs = mpvue.getStorageSync({key: 'logs'}).data || []
+      logs = mpvue.getStorageSync({ key: 'logs' }).data || []
       logs.unshift(Date.now())
       mpvue.setStorageSync({
         key: 'logs',
@@ -23,6 +23,36 @@ export default {
       logs.unshift(Date.now())
       mpvue.setStorageSync('logs', logs)
     }
+    wx.cloud.init({
+      env: 'zayne-autochess-nj0726',
+      traceUser: true
+    })
+    const db = wx.cloud.database({ env: 'zayne-autochess-nj0726' })
+    db.collection('AutoChessDB').get({
+      success (res) {
+        res.data.forEach(resData => {
+          switch (resData._id) {
+            case 'races_cloud':
+              store.dispatch('setRaces', resData.result)
+              break
+            case 'effect_cloud':
+              store.dispatch('setEffect', resData.result)
+              break
+            case 'heros_cloud':
+              store.dispatch('setHeros', resData.result)
+              break
+            default:
+              store.dispatch('setBattles', resData.result)
+              break
+          }
+        })
+      }
+    })
+    // 本地调试
+    // store.dispatch('setRaces', require('../static/datas/races.json'))
+    // store.dispatch('setHeros', require('../static/datas/heros.json'))
+    // store.dispatch('setEffect', require('../static/datas/effect.json'))
+    // store.dispatch('setBattles', require('../static/datas/battles.json'))
   },
   log () {
     // console.log(`log at:${Date.now()}`)
@@ -31,20 +61,5 @@ export default {
 </script>
 
 <style>
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-}
-/* this rule will be remove */
-* {
-  transition: width 2s;
-  -moz-transition: width 2s;
-  -webkit-transition: width 2s;
-  -o-transition: width 2s;
-}
+@import "../static/iconfont/iconfont.css";
 </style>
