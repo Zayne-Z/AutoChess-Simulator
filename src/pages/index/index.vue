@@ -1,8 +1,10 @@
 <template>
   <div class="autochess-chesspanel-content">
+    <Guide v-if="isShowGuide" @closeGuide="closeGuideFn"></Guide>
     <div class="autochess-chesspanel-head-content">
       <div class="autochess-chesspanel-title-content">
-        <i class="iconfont icon-restore" @click="clearAll()" />
+        <i class="toolbar-icon iconfont icon-problem" @click="showGuideFn()" />
+        <i class="toolbar-icon iconfont icon-restore" @click="clearAll()" />
         <ChessTabs :tabDatas="tabDatas" @switchModel="switchModel"></ChessTabs>
       </div>
       <div class="autochess-chesspanel-diy-content">
@@ -29,7 +31,15 @@
         </div>
       </div>
       <div class="autochess-chesspanel-diy-info">
-        <div class="autochess-chesspanel-diy-info-title">Buff效果</div>
+        <ul class="autochess-chesspanel-diy-info-race-statis">
+          <li v-for="effectDes in showUnEffectList" :key="effectDes.des">
+            <span
+              class="autochess-chesspanel-diy-info-label"
+              :style="{ background: '#' + effectDes.color, opacity: effectDes.opacity}"
+            >{{effectDes.title}}</span>
+          </li>
+        </ul>
+        <div class="autochess-chesspanel-diy-info-title">【Buff效果】</div>
         <ul>
           <li v-for="effectDes in showEffectList" :key="effectDes.des">
             <span
@@ -69,10 +79,12 @@
 
 <script>
 import ChessTabs from '../../components/ChessTabs'
+import Guide from '../../components/Guide'
 import store from '../../store'
 export default {
   components: {
-    ChessTabs
+    ChessTabs,
+    Guide
   },
   data () {
     return {
@@ -92,7 +104,9 @@ export default {
       showEffectList: [],
       selectHeros: [],
       isSingleModel: true,
-      isInit: false
+      isInit: false,
+      showUnEffectList: [],
+      isShowGuide: false
     }
   },
   computed: {
@@ -176,6 +190,10 @@ export default {
     clearAll () {
       this.selectHeros = []
       this.showEffectList = []
+      this.showUnEffectList = []
+    },
+    showGuideFn () {
+      this.isShowGuide = true
     },
     switchModel (tabName) {
       this.activeData = ''
@@ -261,16 +279,13 @@ export default {
       })
     },
     _generageShowEffect () {
-      // 选中的种族的名字字符串的Array集合，通过直接添加所有选中角色种族来生成
+      // 1、获取选中的种族的名字字符串的Array集合，通过直接添加所有选中角色种族来生成，存在重复
       let selectRaceName = []
-      // 最终选中的种族的SET集合，用来计算一个种族出现多少次
-      let selectRaces = []
-      // 最终展示的种族效果集合
-      this.showEffectList = []
-
       this.selectHeros.forEach(hero => {
         selectRaceName = selectRaceName.concat(hero.race).concat(hero.vocation)
       })
+      // 2、获取最终选中的种族的SET集合，用来去重计算一个种族出现多少次
+      let selectRaces = []
       selectRaceName.forEach(raceName => {
         let isExist = false
         selectRaces.forEach(race => {
@@ -283,19 +298,61 @@ export default {
           selectRaces.push({ name: raceName, count: 1 })
         }
       })
+
+      // 3、最终展示的种族效果集合，以及全部的种族统计标签
+      this.showEffectList = []
+      this.showUnEffectList = []
       selectRaces.forEach(selectRace => {
+        // 3.1、获取种族效果的描述和种族颜色
         let effectDes = this.effect[selectRace.name]
           ? this.effect[selectRace.name][selectRace.count - 1]
           : ''
+        let color = this._getColorByRaceName(selectRace.name)
+        // 3.2、如果获取不到描述，说明未触发效果
         if (effectDes) {
           let desObj = {
             title: `${effectDes.substring(1, 2)}${selectRace.name}`,
             des: effectDes,
-            color: this._getColorByRaceName(selectRace.name)
+            color: color
           }
           this.showEffectList.push(desObj)
         }
+        // 4、计算未触发的效果
+        const unEffectDes = this._generageRaceStatis(this.effect, selectRace.name, selectRace.count)
+        if (unEffectDes) {
+          let effectObj = {
+            title: unEffectDes,
+            opacity: color === 'FFEB3B' ? 0.7 : color === 'CDDC39' ? 0.5 : 0.3,
+            color: color
+          }
+          this.showUnEffectList.push(effectObj)
+        }
       })
+    },
+    _generageRaceStatis (effect, raceName, raceCount) {
+      let effectDesList = effect[raceName]
+      let effectCount = effectDesList[raceCount - 1].substring(1, 2)
+      let result = ''
+      if (!effectCount) {
+        // 如果没有匹配到描述，说明还未触发最低的效果，将下标改为raceCount，也就是+1开始遍历,直到找到最低的触发个数
+        for (let i = raceCount, len = effectDesList.length; i < len; i++) {
+          effectCount = effectDesList[i].substring(1, 2)
+          if (effectCount) {
+            result = `${raceCount}/${effectCount}${raceName}`
+            break
+          }
+        }
+      } else if (raceCount > effectCount) {
+        // 如果没有匹配到描述，说明还未触发最低的效果，将下标改为raceCount，也就是+1开始遍历,直到找到最低的触发个数
+        for (let i = raceCount, len = effectDesList.length; i < len; i++) {
+          effectCount = effectDesList[i].substring(1, 2)
+          if (effectCount && effectCount > raceCount) {
+            result = `${raceCount}/${effectCount}${raceName}`
+            break
+          }
+        }
+      }
+      return result
     },
     _getColorByRaceName (name) {
       let color = '000'
@@ -354,6 +411,9 @@ export default {
         }
       }
       return flag
+    },
+    closeGuideFn () {
+      this.isShowGuide = false
     }
   }
 }
@@ -382,7 +442,7 @@ export default {
   width: calc(100% - 40px);
   flex-wrap: wrap;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 20px 0 20px;
   min-height: 110px;
 }
 .autochess-chesspanel-chess-content {
@@ -415,8 +475,14 @@ export default {
 .autochess-chesspanel-diy-info li {
   margin: 2px 0;
 }
+
+.autochess-chesspanel-diy-info-race-statis {
+  display: flex;
+  flex-wrap: wrap;
+}
 .autochess-chesspanel-diy-info-title {
-  font-weight: 600;
+  font-weight: 700;
+  margin: 5px 0 0 -8px;
 }
 .autochess-chesspanel-diy-info-label {
   color: #fff;
@@ -468,14 +534,17 @@ export default {
   font-size: 12px;
   text-align: center;
 }
-.icon-restore {
+.toolbar-icon {
   float: right;
   font-size: 25px;
   font-weight: 600;
+}
+.icon-problem {
   margin-right: 20px;
 }
 .icon-autodq {
   font-size: 30px;
+  border-radius: 50%;
   animation: rotate 5s linear infinite;
 }
 @keyframes rotate {

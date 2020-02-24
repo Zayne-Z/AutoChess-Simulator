@@ -5,12 +5,15 @@
       <ChessTabs :tabDatas="tabDatas" @switchModel="switchModel"></ChessTabs>
     </div>
     <ul class="autochess-battle-list-content">
-      <li
-        v-for="(battle, index) in battles"
-        :key="index"
-        @click="userBattle(battle)">
-        <div v-if="((isSingleModel && battle.type ==='single') || (!isSingleModel && battle.type ==='double')) && battle.model === 'hot'" class="autochess-battle-card-content">
-          <div class="autochess-battle-card-colors" :style="{background: battle.colors, height: battle.type ==='double'? '150px': '90px'}"></div>
+      <li v-for="(battle, index) in battles" :key="index" @click="userBattle(battle)">
+        <div
+          v-if="((isSingleModel && battle.type ==='single') || (!isSingleModel && battle.type ==='double')) && battle.model === 'hot'"
+          class="autochess-battle-card-content"
+        >
+          <div
+            class="autochess-battle-card-colors"
+            :style="{background: battle.colors, height: battle.type ==='double'? '150px': '90px'}"
+          ></div>
           <div class="autochess-battle-card">
             <div class="autochess-battle-card-title">{{battle.name}}</div>
             <ul class="autochess-battle-card-heros-content">
@@ -127,6 +130,8 @@ export default {
 }
 .autochess-battle-list-content {
   width: 100%;
+  overflow: auto;
+  height: calc(100vh - 45px);
 }
 .icon-problem {
   float: right;
