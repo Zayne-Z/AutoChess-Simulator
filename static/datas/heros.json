@@ -329,6 +329,34 @@
             "skill": ["https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/xueying1.png"]
         },
         {
+            "name": "牛魔王",
+            "race": ["野兽"],
+            "vocation": ["护卫"],
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/niumowang.png",
+            "skill": ["https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/niumowang.png"]
+        },
+        {
+            "name": "行者",
+            "race": ["野兽"],
+            "vocation": ["召唤"],
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/xingzhe.png",
+            "skill": ["https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/xingzhe.png"]
+        },
+        {
+            "name": "齐天大圣",
+            "race": ["野兽"],
+            "vocation": ["刺杀"],
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/qitiandasheng.png",
+            "skill": ["https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/qitiandasheng.png"]
+        },
+        {
+            "name": "斗战胜佛",
+            "race": ["野兽"],
+            "vocation": ["战士"],
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/douzhanshengfo.png",
+            "skill": ["https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/douzhanshengfo.png"]
+        },
+        {
             "name": "蝙蝠",
             "race": ["猛禽"],
             "vocation": ["狙击"],
@@ -355,6 +383,13 @@
             "vocation": ["法术"],
             "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/feitianhama.png",
             "skill": ["https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/feitianhama1.png"]
+        },
+        {
+            "name": "迦楼罗王",
+            "race": ["猛禽"],
+            "vocation": ["狙击"],
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/jialouluowang.png",
+            "skill": ["https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/jialouluowang.png"]
         },
         {
             "name": "眼虫",
@@ -404,6 +439,13 @@
             "vocation": ["战士"],
             "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/shuyao.png",
             "skill": ["https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/shuyao1.png"]
+        },
+        {
+            "name": "冰罗汉",
+            "race": ["不朽者"],
+            "vocation": ["攻城"],
+            "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/bingluohan.png",
+            "skill": ["https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/bingluohan.png"]
         },
         {
             "name": "武僧熊猫",

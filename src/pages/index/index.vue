@@ -3,7 +3,7 @@
     <Guide v-if="isShowGuide" @closeGuide="closeGuideFn"></Guide>
     <div class="autochess-chesspanel-head-content">
       <div class="autochess-chesspanel-title-content">
-        <i class="toolbar-icon iconfont icon-problem" @click="showGuideFn()" />
+        <i class="toolbar-icon iconfont icon-problem" @click="showGuideFn()"/>
         <i class="toolbar-icon iconfont icon-restore" @click="clearAll()" />
         <ChessTabs :tabDatas="tabDatas" @switchModel="switchModel"></ChessTabs>
       </div>
@@ -15,7 +15,7 @@
           :key="selectHero.name"
           @click="selectHeroFn(selectHero)"
         >
-          <img :src="selectHero.image" />
+          <img :src="selectHero.image" alt="Hero's photo"/>
         </div>
         <div
           class="autochess-chesspanel-chess-content"
@@ -78,9 +78,9 @@
 </template>
 
 <script>
-import ChessTabs from '../../components/ChessTabs'
-import Guide from '../../components/Guide'
-import store from '../../store'
+import ChessTabs from '_c/ChessTabs'
+import Guide from '_c/Guide'
+import store from '@/store'
 export default {
   components: {
     ChessTabs,
