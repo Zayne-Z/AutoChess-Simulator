@@ -3,8 +3,8 @@
     <Guide v-if="isShowGuide" @closeGuide="closeGuideFn"></Guide>
     <div class="autochess-chesspanel-head-content">
       <div class="autochess-chesspanel-title-content">
-        <i class="toolbar-icon iconfont icon-problem" @click="showGuideFn()"/>
-        <i class="toolbar-icon iconfont icon-restore" @click="clearAll()" />
+        <i class="toolbar-icon iconfont icon-problem" @click="handleGuide()"/>
+        <i class="toolbar-icon iconfont icon-restore" @click="handleClear()" />
         <ChessTabs :tabDatas="tabDatas" @switchModel="switchModel"></ChessTabs>
       </div>
       <div class="autochess-chesspanel-diy-content">
@@ -13,7 +13,7 @@
           :class="{ doubleModel: !isSingleModel}"
           v-for="selectHero in selectHeros"
           :key="selectHero.name"
-          @click="selectHeroFn(selectHero)"
+          @click="handleHeroSelect(selectHero)"
         >
           <img :src="selectHero.image" alt="Hero's photo"/>
         </div>
@@ -26,7 +26,7 @@
           <i
             class="iconfont icon-autodq"
             v-if="index === 0 && selectHeros.length > 0"
-            @click="autoFill()"
+            @click="handleAutoFill()"
           />
         </div>
       </div>
@@ -57,7 +57,7 @@
         class="autochess-chesspanel-race-card"
         v-for="(race,index) in races"
         :key="index"
-        @click="queryHeros(race)"
+        @click="handleHeroQuery(race)"
         :class="{'active': race.active}"
         :style="{ background: '#' + race.showColor }"
       >{{race.name}}</li>
@@ -68,9 +68,9 @@
         class="autochess-chesspanel-race-info-card-content"
         v-for="(hero, index) in showHerosSet"
         :key="index"
-        @click="selectHeroFn(hero)"
+        @click="handleHeroSelect(hero)"
       >
-        <img class="autochess-chesspanel-race-info-card" :src="hero.image" />
+        <img class="autochess-chesspanel-race-info-card" :src="hero.image" alt="hero's photo"/>
         <div class="autochess-chesspanel-race-info-card-name">{{hero.name}}</div>
       </div>
     </div>
@@ -187,12 +187,12 @@ export default {
     })
   },
   methods: {
-    clearAll () {
+    handleClear () {
       this.selectHeros = []
       this.showEffectList = []
       this.showUnEffectList = []
     },
-    showGuideFn () {
+    handleGuide () {
       this.isShowGuide = true
     },
     switchModel (tabName) {
@@ -202,7 +202,7 @@ export default {
         this.selectHeros.length = 10
       }
     },
-    queryHeros (race) {
+    handleHeroQuery (race) {
       // 1、设置是否激活
       race.active = !race.active
       // 2、设置背景色
@@ -216,7 +216,7 @@ export default {
         this._selectSwitch(race)
       }
     },
-    selectHeroFn (hero) {
+    handleHeroSelect (hero) {
       let isExist = false
       for (let i = 0, len = this.selectHeros.length; i < len; i++) {
         if (this.selectHeros[i].name === hero.name) {
@@ -363,7 +363,7 @@ export default {
       })
       return color
     },
-    autoFill () {
+    handleAutoFill () {
       // 根据火热阵容列表，遍历判断目前已选中的棋子是否匹配
       let isMatch = true
       let autoGroup = []
@@ -383,7 +383,7 @@ export default {
       }
       // 查询结束后如果匹配就自动填充阵容，如果不匹配弹出暂时没有合适的热门阵容
       if (isMatch) {
-        this._autoFill(autoGroup)
+        this.$_autoFill(autoGroup)
       } else {
         wx.showToast({
           title: '抱歉，暂时没有找到匹配的推荐阵容!',
@@ -391,7 +391,7 @@ export default {
         })
       }
     },
-    _autoFill (autoGroup) {
+    $_autoFill (autoGroup) {
       this.heros.forEach(hero => {
         if (
           autoGroup.indexOf(hero.name) > -1 &&
