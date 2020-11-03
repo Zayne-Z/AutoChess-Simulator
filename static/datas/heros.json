@@ -37,7 +37,7 @@
         {
             "name": "投弹手",
             "race": ["步兵"],
-            "vocation": ["异能"],
+            "vocation": ["法术"],
             "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/toudanshou.png",
             "skill": ["https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/toudanshou1.png"]
         },
@@ -205,7 +205,7 @@
         {
             "name": "轰炸机",
             "race": ["空军"],
-            "vocation": ["辅助"],
+            "vocation": ["爆破"],
             "image": "https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/hongzhaji.png",
             "skill": ["https://7a61-zayne-autochess-nj0726-1301224080.tcb.qcloud.la/image/chess/hongzhaji1.png"]
         },
