@@ -385,10 +385,42 @@ export default {
       if (isMatch) {
         this.$_autoFill(autoGroup)
       } else {
+        this.$_aiFill()
         wx.showToast({
           title: '抱歉，暂时没有找到匹配的推荐阵容!',
           icon: 'none'
         })
+      }
+    },
+    $_aiFill () {
+      // 1、统计出当前选中棋子的羁绊数量
+      const fetters = []
+      this.selectHeros.forEach(hero => {
+        const heroFetters = hero.race.concat(hero.vocation)
+        heroFetters.forEach(hf => {
+          const ft = fetters.find(f => f.name === hf)
+          if (ft) {
+            ft.count++
+          } else {
+            fetters.push({
+              name: hf,
+              count: 1
+            })
+          }
+        })
+      })
+      // 2、排序，将数量多的排前
+      fetters.sort(function (a, b) { return b.count - a.count })
+      console.log(fetters)
+      // 3、取第一个羁绊，从羁绊表中判断该羁绊最高是几个
+      const ftCount = fetters[0].name
+      for (let ef in this.effect) {
+        if (ftCount === ef) {
+          const effectDesc = this.effect[ef][this.effect[ef].length - 1]
+          const effectCount = effectDesc.match(/\[(\d*)\]/)[1]
+          ftCount.fillCount = effectCount - ftCount.count
+          // 到这里获取完当前羁绊剩下的需要填充数量... then
+        }
       }
     },
     $_autoFill (autoGroup) {
