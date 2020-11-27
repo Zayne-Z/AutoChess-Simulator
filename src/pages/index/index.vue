@@ -81,6 +81,7 @@
 import ChessTabs from '_c/ChessTabs'
 import Guide from '_c/Guide'
 import store from '@/store'
+import ChessUtils from '@/utils/chess-utils'
 export default {
   components: {
     ChessTabs,
@@ -228,7 +229,7 @@ export default {
       if (!isExist && this.selectHeros.length < this.totalContent) {
         this.selectHeros.push(hero)
       }
-      this._generageShowEffect()
+      this.$_generageShowEffect()
     },
     _selectAllSwitch () {
       let isSelectAll = this.filters.indexOf('全部')
@@ -278,7 +279,7 @@ export default {
         })
       })
     },
-    _generageShowEffect () {
+    $_generageShowEffect () {
       // 1、获取选中的种族的名字字符串的Array集合，通过直接添加所有选中角色种族来生成，存在重复
       let selectRaceName = []
       this.selectHeros.forEach(hero => {
@@ -381,47 +382,26 @@ export default {
           break
         }
       }
-      // 查询结束后如果匹配就自动填充阵容，如果不匹配弹出暂时没有合适的热门阵容
+      // 查询结束后如果匹配就自动填充阵容，如果不匹配则自动根据现有棋子自动凑齐
       if (isMatch) {
         this.$_autoFill(autoGroup)
       } else {
+        // 2020-11-27 更新了第一版算法
         this.$_aiFill()
-        wx.showToast({
-          title: '抱歉，暂时没有找到匹配的推荐阵容!',
-          icon: 'none'
-        })
+        // wx.showToast({
+        //   title: '抱歉，暂时没有找到匹配的推荐阵容!',
+        //   icon: 'none'
+        // })
       }
     },
     $_aiFill () {
-      // 1、统计出当前选中棋子的羁绊数量
-      const fetters = []
-      this.selectHeros.forEach(hero => {
-        const heroFetters = hero.race.concat(hero.vocation)
-        heroFetters.forEach(hf => {
-          const ft = fetters.find(f => f.name === hf)
-          if (ft) {
-            ft.count++
-          } else {
-            fetters.push({
-              name: hf,
-              count: 1
-            })
-          }
-        })
-      })
-      // 2、排序，将数量多的排前
-      fetters.sort(function (a, b) { return b.count - a.count })
-      console.log(fetters)
-      // 3、取第一个羁绊，从羁绊表中判断该羁绊最高是几个
-      const ftCount = fetters[0].name
-      for (let ef in this.effect) {
-        if (ftCount === ef) {
-          const effectDesc = this.effect[ef][this.effect[ef].length - 1]
-          const effectCount = effectDesc.match(/\[(\d*)\]/)[1]
-          ftCount.fillCount = effectCount - ftCount.count
-          // 到这里获取完当前羁绊剩下的需要填充数量... then
-        }
+      let index = 0;
+      while ((this.selectHeros.length < 10 && this.isSingleModel) || (!this.isSingleModel && this.selectHeros.length < 16)) {
+        const fetterName = ChessUtils.getTopFetterName(this.selectHeros, index);
+        ChessUtils.fillHerosByFetter(this.effect, this.heros, fetterName, this.selectHeros, this.isSingleModel);
+        index++;
       }
+      this.$_generageShowEffect();
     },
     $_autoFill (autoGroup) {
       this.heros.forEach(hero => {
@@ -432,7 +412,7 @@ export default {
           this.selectHeros.push(hero)
         }
       })
-      this._generageShowEffect()
+      this.$_generageShowEffect()
     },
     isIncludes (obj, array, key) {
       let flag = false
